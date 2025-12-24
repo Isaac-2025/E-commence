@@ -884,11 +884,11 @@
             text-align: center;
         }
 
-        /* WhatsApp Chat Bubble */
+        /* WhatsApp Chat Bubble - FIXED FOR MOBILE */
         .whatsapp-chat-bubble {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 20px;
+            right: 20px;
             z-index: 1000;
             display: flex;
             flex-direction: column;
@@ -1067,8 +1067,8 @@
 
         @media (max-width: 768px) {
             .whatsapp-chat-bubble {
-                bottom: 20px;
-                right: 20px;
+                bottom: 15px;
+                right: 15px;
             }
             
             .whatsapp-bubble {
@@ -1102,41 +1102,67 @@
             }
         }
 
-        /* Enhanced Mobile Responsiveness */
+        /* ===== ENHANCED MOBILE RESPONSIVENESS ===== */
+        
+        /* Small phones (max-width: 480px) */
         @media (max-width: 480px) {
-            /* Header adjustments for small phones */
-            .header-container {
+            /* Header adjustments */
+            header {
                 padding: 0.75rem 1rem;
+            }
+            
+            .header-container {
+                padding: 0;
+                gap: 0.75rem;
             }
             
             .logo {
                 font-size: 1.4rem;
+                flex-wrap: wrap;
             }
             
             .logo-search-container {
                 flex-direction: column;
-                gap: 0.75rem;
                 align-items: stretch;
+                gap: 0.75rem;
             }
             
             .search-container {
                 max-width: 100%;
             }
             
+            .search-bar input {
+                padding: 0.6rem 0.8rem;
+                font-size: 14px;
+            }
+            
+            .search-bar button {
+                padding: 0.6rem 1rem;
+            }
+            
             .nav-cart-container {
-                justify-content: space-between;
-                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0.75rem;
             }
             
             .main-nav ul {
-                gap: 0.75rem;
+                justify-content: space-between;
+                width: 100%;
+                gap: 0.5rem;
                 font-size: 0.9rem;
             }
             
+            .main-nav a {
+                padding: 0.25rem 0;
+            }
+            
+            /* Promotional banner */
             .promo-banner {
                 padding: 0.75rem;
-                flex-direction: column;
+                margin: 0.75rem auto;
                 text-align: center;
+                flex-direction: column;
             }
             
             .promo-banner h2 {
@@ -1146,17 +1172,29 @@
             .whatsapp-notice {
                 font-size: 0.8rem;
                 padding: 0.4rem 0.75rem;
+                justify-content: center;
             }
             
-            /* Products grid for small screens */
+            /* Container padding */
+            .container {
+                padding: 0 1rem;
+            }
+            
+            /* Page title */
+            .page-title {
+                font-size: 1.4rem;
+                margin: 1.5rem 0 1rem;
+            }
+            
+            /* Products grid */
             .products-grid {
                 grid-template-columns: 1fr !important;
                 gap: 1rem;
+                margin: 1.5rem 0;
             }
             
-            /* Product card adjustments */
             .product-card {
-                margin-bottom: 0.5rem;
+                margin-bottom: 0;
             }
             
             .product-img-container {
@@ -1183,18 +1221,20 @@
             .add-to-cart-btn, .whatsapp-order-btn {
                 padding: 0.6rem;
                 font-size: 0.9rem;
+                width: 100%;
             }
             
-            /* Filter sidebar adjustments */
+            /* Products page layout */
             .products-page-container {
-                gap: 1rem;
+                gap: 1.5rem;
+                margin: 1.5rem 0;
             }
             
             .products-header {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: stretch;
                 gap: 1rem;
-                padding: 0.75rem 1rem;
+                padding: 1rem;
             }
             
             .products-sort {
@@ -1205,7 +1245,7 @@
                 width: 100%;
             }
             
-            /* Cart page adjustments */
+            /* Cart page */
             .cart-item {
                 flex-direction: column;
                 align-items: flex-start;
@@ -1216,7 +1256,6 @@
             .cart-item-img {
                 width: 100%;
                 height: 150px;
-                object-fit: cover;
             }
             
             .cart-item-actions {
@@ -1229,25 +1268,20 @@
                 gap: 1.5rem;
             }
             
-            .page-title {
-                font-size: 1.4rem;
-                margin: 1.5rem 0 1rem;
-            }
-            
-            .container {
-                padding: 0 1rem;
-            }
-            
-            /* Footer adjustments */
+            /* Footer */
             footer {
                 padding: 1.5rem 1rem;
+                margin-top: 2rem;
+            }
+            
+            .footer-content {
                 font-size: 0.9rem;
             }
             
-            /* WhatsApp bubble */
+            /* WhatsApp bubble for mobile */
             .whatsapp-chat-bubble {
-                bottom: 15px;
-                right: 15px;
+                bottom: 10px;
+                right: 10px;
             }
             
             .whatsapp-bubble {
@@ -1257,13 +1291,14 @@
             }
         }
 
+        /* Tablets and medium phones (481px - 768px) */
         @media (max-width: 768px) and (min-width: 481px) {
-            /* For tablets and medium phones */
             .products-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
             
             .logo-search-container {
+                flex-direction: row;
                 flex-wrap: wrap;
             }
             
@@ -1272,29 +1307,22 @@
                 width: 100%;
                 margin-top: 0.5rem;
             }
-            
-            .nav-cart-container {
-                order: 2;
-            }
         }
 
         /* Fix for iPhone input zoom */
         @media (max-width: 480px) {
-            input, select, textarea {
-                font-size: 16px !important; /* Prevents zoom on focus */
-            }
-            
-            .search-bar input {
-                font-size: 16px;
-                padding: 0.6rem 0.8rem;
-            }
-            
-            .search-bar button {
-                padding: 0.6rem 1rem;
+            input[type="text"],
+            input[type="number"],
+            input[type="email"],
+            input[type="tel"],
+            input[type="password"],
+            select,
+            textarea {
+                font-size: 16px !important;
             }
         }
 
-        /* Fix for very small screens (iPhone SE, etc.) */
+        /* Very small screens (iPhone SE, etc.) */
         @media (max-width: 320px) {
             .logo {
                 font-size: 1.2rem;
@@ -1302,12 +1330,11 @@
             
             .ghana-flag {
                 font-size: 0.8rem;
-                margin-left: 0.25rem;
             }
             
             .main-nav ul {
-                gap: 0.5rem;
                 font-size: 0.85rem;
+                gap: 0.25rem;
             }
             
             .cart-icon {
@@ -1317,18 +1344,68 @@
             .product-img-container {
                 height: 160px;
             }
+            
+            .whatsapp-bubble {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+                bottom: 8px;
+                right: 8px;
+            }
         }
 
         /* Ensure images are responsive */
         img {
             max-width: 100%;
             height: auto;
+            display: block;
         }
 
-        /* Fix for text overflow on small screens */
-        .product-name, .cart-item-name {
+        /* Fix for text overflow */
+        .product-name,
+        .cart-item-name,
+        .logo span {
             word-wrap: break-word;
             overflow-wrap: break-word;
+            hyphens: auto;
+        }
+
+        /* Touch-friendly tap targets */
+        button,
+        a,
+        input[type="checkbox"],
+        input[type="radio"] {
+            min-height: 44px;
+            min-width: 44px;
+        }
+
+        .filter-option {
+            min-height: 44px;
+        }
+
+        /* Prevent horizontal scrolling */
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Fix for modal overlays on mobile */
+        .modal,
+        .notification {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 10000;
+        }
+
+        /* Improve scrolling on mobile */
+        .container,
+        .products-grid,
+        .cart-items {
+            -webkit-overflow-scrolling: touch;
         }
     </style>
 </head>
@@ -1377,7 +1454,7 @@
             </div>
             <div class="whatsapp-notice">
                 <i class="fab fa-whatsapp"></i>
-                <span>Order via WhatsApp: +233 0540912864</span> <!-- Fixed phone number -->
+                <span>Order via WhatsApp: +233 0540912864</span>
             </div>
         </div>
     </div>
@@ -2419,9 +2496,9 @@
         </div>
     </footer>
 
-    <!-- WhatsApp Chat Bubble -->
+    <!-- WhatsApp Chat Bubble - Fixed for mobile -->
     <div class="whatsapp-chat-bubble">
-        <a href="https://wa.me/2330540912864" class="whatsapp-bubble" target="_blank" id="whatsappBubble"> <!-- Fixed phone number -->
+        <a href="https://wa.me/2330540912864" class="whatsapp-bubble" target="_blank" id="whatsappBubble">
             <i class="fab fa-whatsapp"></i>
         </a>
         <div class="whatsapp-tooltip">Chat with us on WhatsApp</div>
